@@ -6,13 +6,11 @@ library(rgbif)
 library(purrr)
 library(zip)
 
-dir = "C:/Users/ftw712/Desktop/world_odonata_list/data/"
+dir = "C:/Users/ftw712/Desktop/world_odonata_list/"
 dwca = "world-odonata-list-dwca" 
 save_dir = file.path(dir,"/",dwca)
 
 source_xls = "world-odonata-list-20210812.xls"
-
-dir.create(save_dir, showWarnings = FALSE)
 
 # clean and organize source_xls
 d = source_xls %>%
@@ -49,7 +47,7 @@ mutate(scientificName = names) %>% # replace name with syn
 mutate(scientificName = if_else(!is.na(syn),syn,scientificName)) %>% # replace name with syn
 mutate(is_doubtful = grepl("\\(doubtful species\\)|\\(incertae sedis\\)",scientificName)) %>% # get doubtful names from comments
 mutate(is_junior_syn = grepl(" junior ",scientificName)) %>% # junior syn handling
-mutate(scientificName = gsub("\\?","",scientificName)) %>% # run some clean up of the names
+mutate(scientificName = gsub("\\?","",scientificName)) %>% # run some clean up of the names. could move some of this to notes
 mutate(scientificName = gsub("\\[[^][]*]","",scientificName)) %>%
 mutate(scientificName = gsub("^Syn ","",scientificName)) %>%
 mutate(scientificName = gsub("\\(SIC\\!\\) ","",scientificName)) %>%
