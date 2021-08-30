@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="b73704ac-e77b-48a4-ae34-cd6bcebd1314" system="uuid" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <dataset>
+    <contact>
+	<creator>
+      <individualName>
+        <givenName>John</givenName>
+        <surName>Waller</surName>
+		<electronicMailAddress>jwaller@gbif.org</electronicMailAddress>
+		<organizationName>GBIF</organizationName>
+		<onlineUrl>https://www.gbif.org/</onlineUrl>
+		<positionName>Data Analyst</positionName>
+      </individualName>
+    </contact>
+	</creator>
+      <individualName>
+        <givenName>Dennis</givenName>
+        <organizationName>Slater Museum of Natural History</organizationName>
+        <surName>Paulson</surName>
+      </individualName>
+      <individualName>
+        <givenName>Martin</givenName>
+        <surName>Schorr</surName>
+      </individualName>
+      <individualName>
+        <givenName>Cyrille</givenName>
+        <surName>Deliry</surName>
+      </individualName>
+    <description>
+	<para>This is an ongoing attempt to list all of the valid species of Odonata. It is based on past compilations by the authors listed below and constant additional literature research. It includes the author and year of description for all genera and species. It also includes all synonyms for all species (but not the genera) that we have been able to confirm. We consider the list a good starting point for estimates of biodiversity in this insect order. We must also point out that many typographical errors were introduced into the list when it was first typed, and as we continue to find these we correct them, but some may still persist.
+	
+	The checklist dataset was converted into a Darwin Core Archive (DwC-A) from the source excel file found at the Slater Museum website and maintained by Dennis Paulson. If you find some errors or omissions in this checklist dataset, please check the source dataset.</para></description>
+  <intellectualRights>
+    <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+  </intellectualRights>
+    <keywordSet>
+      <keyword>Checklist</keyword>
+      <keywordThesaurus>GBIF Dataset Type Vocabulary:http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+    </keywordSet>
+    <pubDate>2021-08-30 14:20:48</pubDate>
+    <title>World Odonata List</title>
+  </dataset>
+</eml:eml>

@@ -1,0 +1,127 @@
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1"
+         xmlns:dc="http://purl.org/dc/terms/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+         packageId="848271aa-6a4f-4bae-a055-7081f3e70c4b/v1.630" system="http://gbif.org" scope="system"
+         xml:lang="eng">
+
+<dataset>
+  <alternateIdentifier>848271aa-6a4f-4bae-a055-7081f3e70c4b</alternateIdentifier>
+  <alternateIdentifier>https://ipt.biodiversity.be/resource?r=belgium_lepidoptera</alternateIdentifier>
+  <title xml:lang="eng">Catalogue of the Lepidoptera of Belgium</title>
+      <creator>
+    <individualName>
+        <givenName>Chris</givenName>
+      <surName>Steeman</surName>
+    </individualName>
+    <organizationName>Flemish Entomological Society</organizationName>
+    <positionName>Contact person</positionName>
+    <electronicMailAddress>christiaan.steeman@telenet.be</electronicMailAddress>
+      </creator>
+      <metadataProvider>
+    <individualName>
+        <givenName>Nicolas</givenName>
+      <surName>Noé</surName>
+    </individualName>
+    <organizationName>Belgian Biodiversity Platform</organizationName>
+    <positionName>IT Expert</positionName>
+    <address>
+        <country>BE</country>
+    </address>
+    <electronicMailAddress>n.noe@biodiversity.be</electronicMailAddress>
+      </metadataProvider>
+      <associatedParty>
+    <individualName>
+        <givenName>Nicolas</givenName>
+      <surName>Noe</surName>
+    </individualName>
+    <electronicMailAddress>niconoe@ulb.ac.be</electronicMailAddress>
+    <role>user</role>
+      </associatedParty>
+  <pubDate>
+      2021-08-23
+  </pubDate>
+  <language>eng</language>
+  <abstract>
+    <para>The Catalogue of the Lepidoptera of Belgium, comprising all Lepidoptera of Belgium, provides information on the systematics and the distribution per province arranged in time-periods. The aim of the catalogue is also to depict all species in nature and as museum specimens, along with their pre-imaginal stages and larval host-plants.
+
+This dataset also contains images and vernacular names. 
+
+More data (host plant informations, invasive status, ...) can be found on the project website: https://projects.biodiversity.be/lepidoptera</para>
+  </abstract>
+      <keywordSet>
+            <keyword>Checklist</keyword>
+        <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+      </keywordSet>
+      <keywordSet>
+            <keyword>Inventoryregional</keyword>
+        <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+      </keywordSet>
+  <intellectualRights>
+    <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+  </intellectualRights>
+  <distribution scope="document">
+    <online>
+      <url function="information">https://projects.biodiversity.be/lepidoptera</url>
+    </online>
+  </distribution>
+  <coverage>
+      <geographicCoverage>
+          <geographicDescription>Belgium</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>2.483</westBoundingCoordinate>
+          <eastBoundingCoordinate>6.394</eastBoundingCoordinate>
+          <northBoundingCoordinate>51.529</northBoundingCoordinate>
+          <southBoundingCoordinate>49.482</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+          <taxonomicCoverage>
+              <taxonomicClassification>
+                  <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Lepidoptera</taxonRankValue>
+              </taxonomicClassification>
+          </taxonomicCoverage>
+  </coverage>
+  <maintenance>
+    <description>
+      <para></para>
+    </description>
+    <maintenanceUpdateFrequency>daily</maintenanceUpdateFrequency>
+  </maintenance>
+
+      <contact>
+    <individualName>
+        <givenName>Chris</givenName>
+      <surName>Steeman</surName>
+    </individualName>
+    <organizationName>Flemish Entomological Society</organizationName>
+    <positionName>Contact person</positionName>
+    <address>
+        <country>BE</country>
+    </address>
+    <electronicMailAddress>christiaan.steeman@telenet.be</electronicMailAddress>
+      </contact>
+      <contact>
+    <individualName>
+        <givenName>Theo</givenName>
+      <surName>Garrevoet</surName>
+    </individualName>
+    <organizationName>Flemish Entomological Society</organizationName>
+    <positionName>Contact person</positionName>
+    <address>
+        <country>BE</country>
+    </address>
+    <electronicMailAddress>theo.garrevoet@telenet.be</electronicMailAddress>
+      </contact>
+</dataset>
+  <additionalMetadata>
+    <metadata>
+      <gbif>
+          <dateStamp>2018-10-11T23:04:29.402+00:00</dateStamp>
+          <hierarchyLevel>dataset</hierarchyLevel>
+          <resourceLogoUrl>http://ipt.biodiversity.be/logo.do?r=belgium_lepidoptera</resourceLogoUrl>
+          <dc:replaces>848271aa-6a4f-4bae-a055-7081f3e70c4b/v1.63.xml</dc:replaces>
+      </gbif>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>
