@@ -61,14 +61,6 @@ mutate(scientificName = gsub("\\(or syn of L. pontica\\)","",scientificName)) %>
 mutate(id = taxonID) %>% # id the same as taxonID
 glimpse()
 
-# mutate(scientificName = gsub("\\(nomen oblitum\\)","",scientificName)) %>%
-d %>% 
-filter(grepl("Agriocnemis",scientificName)) %>% 
-select(scientificName) %>% 
-print(n=100)
-
-
-if(FALSE) {
 # run names through GBIF name parser
 parsed = d %>% 
 pull(scientificName) %>% 
@@ -127,11 +119,6 @@ scientificNameAuthorship
 )) %>%
 glimpse()
 
-
-checklist %>% 
-select(genus) %>%
-unique()
-
 # tests
 if(!all(table(checklist$taxonID) == 1)) stop("error: non-unique taxon ids")
 if(any(!c("eml.xml","meta.xml") %in% list.files(save_dir))) stop("your forgot to add the meta data files!") 
@@ -143,4 +130,3 @@ checklist %>% readr::write_tsv(paste0(save_dir,"/taxon.txt"),na = "")
 setwd(dir)
 zip::zip(paste0(dwca,".zip"),dwca)
 
-}
