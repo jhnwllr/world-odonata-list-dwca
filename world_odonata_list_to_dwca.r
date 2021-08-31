@@ -27,7 +27,7 @@ mutate(family = stringr::str_to_title(family)) %>%
 mutate(is_genus = # a genus is something that has two Capitalized words like "Dog John, 2021"
 case_when(
 grepl("^[A-Z][^ ]+ [A-Z][^ ]+",names) ~ TRUE, # is a GENUS
-grepl("^[A-Z][^ ]+ von|van|de [A-Z][^ ]+",names) ~ TRUE, # handle dutch names
+grepl("^[A-Z][^ ]+ (von|van|de) [A-Z][^ ]+",names) ~ TRUE, # handle dutch names
 TRUE ~ FALSE # otherwise not a GENUS
 )) %>%
 mutate(genus = case_when(is_genus ~ names)) %>% # add the genus column
@@ -43,13 +43,14 @@ mutate(syn_index = cumsum(if_else(is.na(syn),0,1))) %>% # important for unique i
 mutate(max_id = max(taxonID)) %>% # for unique taxonIDs
 mutate(taxonID = if_else(!is.na(syn),max_id+syn_index,taxonID)) %>% 
 arrange(rn) %>%
-mutate(scientificName = names) %>% # replace name with syn
+mutate(scientificName = names) %>% 
 mutate(scientificName = if_else(!is.na(syn),syn,scientificName)) %>% # replace name with syn
 mutate(is_doubtful = grepl("\\(doubtful species\\)|\\(incertae sedis\\)",scientificName)) %>% # get doubtful names from comments
 mutate(is_junior_syn = grepl(" junior ",scientificName)) %>% # junior syn handling
 mutate(scientificName = gsub("\\?","",scientificName)) %>% # run some clean up of the names. could move some of this to notes
 mutate(scientificName = gsub("\\[[^][]*]","",scientificName)) %>%
 mutate(scientificName = gsub("^Syn ","",scientificName)) %>%
+mutate(scientificName = gsub("^syn ","",scientificName)) %>%
 mutate(scientificName = gsub("\\(SIC\\!\\) ","",scientificName)) %>%
 mutate(scientificName = gsub("\\(Sic\\!\\) ","",scientificName)) %>%
 mutate(scientificName = gsub("\\(doubtful species\\)|\\(incertae sedis\\)","",scientificName)) %>% # clean up 
@@ -60,6 +61,14 @@ mutate(scientificName = gsub("\\(or syn of L. pontica\\)","",scientificName)) %>
 mutate(id = taxonID) %>% # id the same as taxonID
 glimpse()
 
+# mutate(scientificName = gsub("\\(nomen oblitum\\)","",scientificName)) %>%
+d %>% 
+filter(grepl("Agriocnemis",scientificName)) %>% 
+select(scientificName) %>% 
+print(n=100)
+
+
+if(FALSE) {
 # run names through GBIF name parser
 parsed = d %>% 
 pull(scientificName) %>% 
@@ -118,6 +127,11 @@ scientificNameAuthorship
 )) %>%
 glimpse()
 
+
+checklist %>% 
+select(genus) %>%
+unique()
+
 # tests
 if(!all(table(checklist$taxonID) == 1)) stop("error: non-unique taxon ids")
 if(any(!c("eml.xml","meta.xml") %in% list.files(save_dir))) stop("your forgot to add the meta data files!") 
@@ -129,4 +143,4 @@ checklist %>% readr::write_tsv(paste0(save_dir,"/taxon.txt"),na = "")
 setwd(dir)
 zip::zip(paste0(dwca,".zip"),dwca)
 
-
+}
