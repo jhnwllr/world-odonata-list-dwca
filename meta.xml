@@ -15,13 +15,14 @@
     <field index="9" term="http://rs.tdwg.org/dwc/terms/genus"/>
     <field index="10" term="http://rs.tdwg.org/dwc/terms/subgenus"/>
     <field index="11" term="http://rs.tdwg.org/dwc/terms/specificEpithet"/>
-    <field index="12" term="http://rs.tdwg.org/dwc/terms/taxonRank"/>
-    <field index="13" term="http://rs.tdwg.org/dwc/terms/scientificNameAuthorship"/>
-    <field index="14" term="http://rs.tdwg.org/dwc/terms/taxonomicStatus"/>
-    <field index="15" term="http://rs.tdwg.org/dwc/terms/taxonRemarks"/>
-    <field index="16" term="http://purl.org/dc/terms/modified"/>
-    <field index="17" term="http://purl.org/dc/terms/language"/>
-    <field index="18" term="http://rs.tdwg.org/dwc/terms/informationWithheld"/>
-    <field index="19" term="http://purl.org/dc/terms/references"/>
+    <field index="12" term="http://rs.tdwg.org/dwc/terms/infraspecificEpithet"/>
+    <field index="13" term="http://rs.tdwg.org/dwc/terms/taxonRank"/>
+    <field index="14" term="http://rs.tdwg.org/dwc/terms/scientificNameAuthorship"/>
+    <field index="15" term="http://rs.tdwg.org/dwc/terms/taxonomicStatus"/>
+    <field index="16" term="http://rs.tdwg.org/dwc/terms/taxonRemarks"/>
+    <field index="17" term="http://purl.org/dc/terms/modified"/>
+    <field index="18" term="http://purl.org/dc/terms/language"/>
+    <field index="19" term="http://rs.tdwg.org/dwc/terms/informationWithheld"/>
+    <field index="20" term="http://purl.org/dc/terms/references"/>
   </core>
 </archive>

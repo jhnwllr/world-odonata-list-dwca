@@ -56,8 +56,7 @@ mutate(scientificName = gsub("\\(lapsus\\)","",scientificName)) %>%
 mutate(scientificName = gsub("\\(incorrect gender\\)","",scientificName)) %>%
 mutate(scientificName = gsub("\\(part\\)","",scientificName)) %>%
 mutate(scientificName = gsub("\\(or syn of L. pontica\\)","",scientificName)) %>%
-mutate(id = taxonID) %>% # id the same as taxonID
-glimpse()
+mutate(id = taxonID) # id the same as taxonID
 
 # run names through GBIF name parser
 parsed = d %>% 
@@ -65,7 +64,7 @@ pull(scientificName) %>%
 unique() %>% 
 rgbif::parsenames() %>%
 mutate(scientificName = scientificname) %>%
-select(scientificName,authorship,year,specificepithet) 
+select(scientificName,authorship,year,specificepithet,infraspecificepithet) 
 
 # merge back together to create checklist 
 checklist = merge(parsed,d,id="scientificName",all.y=TRUE) %>% 
@@ -74,7 +73,12 @@ mutate(kingdom = "Animalia") %>%
 mutate(class = "Insecta") %>%
 mutate(order = "Odonata") %>%
 mutate(subgenus = NA_character_) %>%
-mutate(taxonRank = if_else(is_genus,"genus","species")) %>%
+mutate(is_subspecies = !is.na(infraspecificepithet)) %>%
+mutate(taxonRank = case_when(
+is_genus ~ "genus",
+is_subspecies ~ "subspecies",
+TRUE ~ "species"
+)) %>%
 mutate(scientificNameAuthorship = if_else(!is.na(authorship),paste0(authorship,", ",year),NA_character_)) %>%
 mutate(taxonomicStatus = case_when(
 is.na(syn) ~ "accepted",
@@ -101,6 +105,7 @@ family,
 genus,
 subgenus,
 specificEpithet = specificepithet,
+infraspecificEpithet = infraspecificepithet,
 taxonRank,
 scientificNameAuthorship,
 taxonomicStatus,
@@ -136,10 +141,14 @@ glimpse()
 if(!all(table(checklist$taxonID) == 1)) stop("error: non-unique taxon ids")
 if(any(!c("eml.xml","meta.xml") %in% list.files(save_dir))) stop("your forgot to add the meta data files!") 
 if(nrow(checklist) < 10000) stop("probably something went wrong with the source")
-if(ncol(checklist) < 20) stop("check your number of columns")
+if(ncol(checklist) < 21) stop("check your number of columns")
+if(any(is.na(checklist$taxonRank))) stop("ranks are missing")
 
 # save checklist 
 checklist %>% readr::write_tsv(paste0(save_dir,"taxon.txt"),na = "")
+
+print("file saved")
+
 
 # zip the archive
 # setwd(dir)
